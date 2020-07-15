@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<head>
+    <title>DBD - Survivor Roulette</title>
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:title" content="DBD - Survivor Roulette">
+    <meta property="og:site_name" content="DBD - Perk Roulette" />
+    <meta property="og:url" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.13.1/css/all.css'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">
+            <img src="imgs/Perk-Roller.png" width="30" height="30" class="d-inline-block align-top" alt=""
+                loading="lazy">
+            Perk Roulette
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fal fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="survivor.html"><i class="fal fa-running"></i> Survivor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="killer.html"><i class="fal fa-skull-cow"></i> Killer</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Button Social -->
+        <div class="btn-group mr-2" role="group" aria-label="Social">
+            <a type="button" class="btn btn-twitter" href="http://twitter.voodoo.ovh/" target="_blank"><i
+                    class="fab fa-twitter"></i></a>
+            <a type="button" class="btn btn-twitch" href="http://twitch.voodoo.ovh/" target="_blank"><i
+                    class="fab fa-twitch"></i></a>
+            <a type="button" class="btn btn-instagram" href="http://instagram.voodoo.ovh/" target="_blank"><i
+                    class="fab fa-instagram"></i></a>
+            <a type="button" class="btn btn-discord" href="http://discord.voodoo.ovh/" target="_blank"><i
+                    class="fab fa-discord"></i></a>
+        </div>
+    </nav>
+
+    <div class="container h-75 d-flex justify-content-center main-content">
+        <div class="mt-5 mb-6">
+            <button type="button" class="btn btn-themed btn-lg m-1 float-right" data-toggle="modal"
+                data-target="#exampleModalCenter">
+                <i class="fal fa-info"></i>
+            </button>
+            <div class="row text-center">
+                <div class="col">
+                    <!-- Main content here -->
+                    <div class="row mt-10">
+                        <div class="col">
+                            <div class="jumbotron bg-dark overflow-auto p-4" style="height: auto; width: auto;"
+                                id="survivor-list">
+
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-themed btn-lg mr-1" onclick="ActiveAll()"
+                                        id="select-all-btn">Tout Sélectionner</button>
+                                    <button type="button" class="btn btn-themed btn-lg ml-1" onclick="UnActiveAll()"
+                                        id="unselect-all-btn" disabled>Tout Déselectionner</button>
+                                </div>
+
+                                <div class="row d-inline-flex" id="place-for-survivor">
+                                    <!-- Generation des personnages ici -->
+                                </div>
+                            </div>
+                            <button type="button" id="ButtonRandom" class="btn btn-success btn-lg btn-block"
+                                onclick="GetPerks()">Choisir des compétences aléatoires !</button>
+                            <button type="button" id="ButtonRetry" class="btn btn-warning btn-lg btn-block"
+                                onclick="Retry()" style="display: none;">Nouveau roulement.</button>
+                            <button type="button" id="ButtonReset" class="btn btn-danger btn-lg btn-block"
+                                onclick="Reset()" style="display: none;">Choix des personnages.</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Informations</h5>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Tout d'abord, cette API n'est pas affiliée à <a href="https://deadbydaylight.com/"
+                            target="_blank">Dead by Daylight</a> ou à une société de <a href="https://www.bhvr.com/"
+                            target="_blank">BEHAVIOUR</a>.
+                        <br>
+                        Je fais cela uniquement pour ma propre application, j'ai donc pensé que cela pourrait être utile
+                        à quelqu'un d'autre.
+                    </p>
+                    <br><br><br>
+                    <a href="https://deadbydaylight.com" target="_blank"><img id="game-version"
+                            src="https://img.shields.io/badge/GAME-0.0.0-red"></a>
+                    <a href="https://bridge.buddyweb.fr/docs/dbd" target="_blank"><img id="api-version"
+                            src="https://img.shields.io/badge/API-0.0.0-blue"></a>
+                    <br><br><br>
+                    <img id="actual-api-version" src="https://img.shields.io/badge/Your%20API%20Version-0.0.0-green">
+                    <br>
+                    <p><span style="color: #e05d44">Couleur Rouge = Mise à jour d'API possible. Clique sur
+                            Refresh.</span></p>
+                    <p><span style="color: #97ca00">Couleur Verte = Tout est OK.</span></p>
+                    <p>
+                        Si vous avez toujours un problème avec ce perk roller. Merci de rafraîchir le cache de votre
+                        navigateur (souvent ctrl+R ou ctrl+F5).
+                        <br>
+                        Même si après ceci vous avez toujours une erreur, vous pouvez me contacter via <a
+                            href="http://twitter.voodoo.ovh" target="_blank">Twitter</a> ou sur mon <a
+                            href="http://discord.voodoo.ovh" target="_blank">Discord</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="loadAPI()">Refresh API</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js'></script>
+    
+    <script src='js/survivor.js'></script>
+</body>
+
+</html>
