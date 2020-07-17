@@ -310,11 +310,30 @@ hr.hr-4:after {
 }
 
 .perk {
-	background-image: url(https://raw.githubusercontent.com/dearvoodoo/DBD-PerkRoulette/master/imgs/back-chroma.gif);
+	background-image: url(/imgs/back-chroma.gif);
 	background-position: center;
 	background-size: 110px;
 }
 
 p.text-center.pt-2 {
     font-size: x-small;
+}
+
+.perk-shrine {
+	background-image: url(/imgs/back-chroma.gif);
+	background-position: center;
+	background-size: 64px;
+}
+
+.table-dark {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+#Shrine-Perk-Price-1, #Shrine-Perk-Price-2, #Shrine-Perk-Price-3, #Shrine-Perk-Price-4 {
+    color: var(--text-link)
+}
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: var(--bg-primary);
 }
