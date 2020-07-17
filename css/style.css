@@ -297,7 +297,7 @@ hr.hr-4:after {
     background: var(--bg-floating)!important;
     border: 1px solid var(--bg-secondary);
     border-radius: 5px;
-    width: 8vw;
+    width: 70%;
     height: auto;
 }
 
@@ -310,7 +310,11 @@ hr.hr-4:after {
 }
 
 .perk {
-	background-image: url(https://raw.githubusercontent.com/dearvoodoo/dbd/master/back-chroma.gif);
+	background-image: url(/imgs/back-chroma.gif);
 	background-position: center;
 	background-size: 110px;
+}
+
+p.text-center.pt-2 {
+    font-size: x-small;
 }

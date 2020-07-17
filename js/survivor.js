@@ -64,9 +64,9 @@ function loadAPI() {
 function getSurvivors() {
     $("#place-for-survivor").empty();
     var dataSurvivor = JSON.parse(localStorage.getItem('dataSurvivor'));
-	$("#place-for-survivor").append("<div class=\"col-*-*\"><div class=\"bg-dark perso-box\"><img class=\"perso-common mx-auto d-block\" width=\"90px\" height=\"90px\" id=\"All\" src=\"https://raw.githubusercontent.com/dearvoodoo/dbd/master/"+S_or_K+"/PreviewPortrait/All.png\" onclick=\"filter(this.id)\" data-selected=\"false\"></img><p class=\"text-center\" style=\"padding: 1px;\">Commune</p></div></div>")
+	$("#place-for-survivor").append("<div class=\"col-lg-2 col-md-3 col-xl-3 col-4 pb-2\"><div class=\"bg-dark perso-box\"><img class=\"perso mx-auto d-block\" id=\"All\" src=\"imgs/characters/All.png\" onclick=\"filter(this.id)\" data-selected=\"false\" style=\"filter:drop-shadow(0px 0px 5px #000) grayscale(0.5) opacity(0.5)\"></img><p class=\"text-center pt-2\" style=\"padding: 1px;\">Commune</p></div></div>")
 	$.each( dataSurvivor, function(s, survivor ) {
-		$("#place-for-survivor").append("<div class=\"col-*-*\"><div class=\"bg-dark perso-box\"><img class=\"perso mx-auto d-block\" id=\""+ survivor.name_tag +"\" src=\"https://raw.githubusercontent.com/dearvoodoo/dbd/master/"+S_or_K+"/Portrait/"+ survivor.name_tag +".png\" onclick=\"filter(this.id)\" data-selected=\"false\"></img></div></div>")
+		$("#place-for-survivor").append("<div class=\"col-lg-2 col-md-3 col-xl-3 col-4 pb-2\"><div class=\"bg-dark perso-box\"><img class=\"perso mx-auto d-block\" id=\""+ survivor.name_tag +"\" src=\"imgs/characters/"+ survivor.name_tag +".png\" onclick=\"filter(this.id)\" data-selected=\"false\" style=\"filter:drop-shadow(0px 0px 5px #000) grayscale(0.5) opacity(0.5)\"></img><p class=\"text-center pt-2\" style=\"padding: 1px;\">"+survivor.name+"</p></div></div>")
 	});
 };
 
