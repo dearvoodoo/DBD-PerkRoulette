@@ -320,7 +320,7 @@ p.text-center.pt-2 {
 }
 
 .perk-shrine {
-	background-image: url(/imgs/back-chroma.gif);
+	background-image: url(https://raw.githubusercontent.com/dearvoodoo/DBD-PerkRoulette/master/imgs/back-chroma.gif);
 	background-position: center;
 	background-size: 64px;
 }
