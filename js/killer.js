@@ -298,7 +298,7 @@ function Reset() {
 
 checkVersion();
 function checkVersion() {
-	$.getJSON("https://cdn.jsdelivr.net/gh/dearvoodoo/dbd/version.json", function(dataVersion) {
+	$.getJSON("https://cdn.jsdelivr.net/gh/dearvoodoo/dbd@latest/version.json", function(dataVersion) {
 		console.log(dataVersion.api)
 		var link = "https://img.shields.io/badge/"
 	
