@@ -310,19 +310,13 @@ hr.hr-4:after {
 }
 
 .perk {
-	background-image: url(/imgs/back-chroma.gif);
+	background-image: url(https://raw.githubusercontent.com/dearvoodoo/DBD-PerkRoulette/master/imgs/back-chroma.gif);
 	background-position: center;
 	background-size: 110px;
 }
 
 p.text-center.pt-2 {
     font-size: x-small;
-}
-
-.perk-shrine {
-	background-image: url(https://raw.githubusercontent.com/dearvoodoo/DBD-PerkRoulette/master/imgs/back-chroma.gif);
-	background-position: center;
-	background-size: 64px;
 }
 
 .table-dark {
