@@ -77,10 +77,10 @@
         perk_name_3.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > td:nth-child(2) > a").text())
         perk_name_4.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > td:nth-child(2) > a").text())
 
-        perk_price_1.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > th:nth-child(3) > b > span").text())
-        perk_price_2.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > th:nth-child(3) > b > span").text())
-        perk_price_3.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > th:nth-child(3) > b > span").text())
-        perk_price_4.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > th:nth-child(3) > b > span").text())
+        perk_price_1.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > td.BG-All.ISACBG-All.ISBG.SoS-IS > div:nth-child(1)").text())
+        perk_price_2.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > td.BG-All.ISACBG-All.ISBG.SoS-IS > div:nth-child(1)").text())
+        perk_price_3.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > td.BG-All.ISACBG-All.ISBG.SoS-IS > div:nth-child(1)").text())
+        perk_price_4.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > td.BG-All.ISACBG-All.ISBG.SoS-IS > div:nth-child(1)").text())
 
         character_name_1.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > td:nth-child(4) > a").text())
         character_name_2.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > td:nth-child(4) > a").text())
