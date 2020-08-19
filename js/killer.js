@@ -1,5 +1,5 @@
 ﻿﻿var S_or_K = "Killers"
-var Perk_lang = "perksfr"
+var lang = "fr"
 var Perk_char = "Tueur"
 
 if (localStorage.hasOwnProperty('load_time_K') === false) {
@@ -51,7 +51,7 @@ function loadAPI() {
         localStorage.setItem( 'dataKiller', JSON.stringify(dataSurvivor) )
     });
 
-    $.getJSON( "https://bridge.buddyweb.fr/api/dbd/"+Perk_lang+"?role="+Perk_char, function(dataCharacters) {
+    $.getJSON( "https://bridge.buddyweb.fr/api/dbd/perks?lang=" + lang + "&role=" + Perk_char, function(dataCharacters) {
 		localStorage.setItem( 'dataCharacters_K', JSON.stringify(dataCharacters) )
     });
 	checkVersion()
