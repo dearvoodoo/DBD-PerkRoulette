@@ -47,17 +47,31 @@ if (localStorage.hasOwnProperty('load_time_K') === false) {
 }
 
 function loadAPI() {
-	$.getJSON( "https://bridge.buddyweb.fr/api/dbd/"+S_or_K, function(dataSurvivor) {
-        localStorage.setItem( 'dataKiller', JSON.stringify(dataSurvivor) )
-    });
+    if (localStorage.getItem("isPTB") === "true") {
+        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/" + S_or_K, function(dataSurvivor) {
+            localStorage.setItem( 'dataKiller', JSON.stringify(dataSurvivor) )
+        });
+    } else {
+        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/" + S_or_K + "?isptb=false", function(dataSurvivor) {
+            localStorage.setItem( 'dataKiller', JSON.stringify(dataSurvivor) )
+        });
+    }
 
-    $.getJSON( "https://bridge.buddyweb.fr/api/dbd/perks?lang=" + lang + "&role=" + Perk_char, function(dataCharacters) {
-		localStorage.setItem( 'dataCharacters_K', JSON.stringify(dataCharacters) )
-    });
+    if (localStorage.getItem("isPTB") === "true") {
+        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/perks" + lang + "&role=" + Perk_char, function(dataCharacters) {
+            localStorage.setItem( 'dataCharacters_K', JSON.stringify(dataCharacters) )
+        });
+    } else {
+        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/perks" + lang + "&role=" + Perk_char + "&isptb=false", function(dataCharacters) {
+            localStorage.setItem( 'dataCharacters_K', JSON.stringify(dataCharacters) )
+        });
+    }
+
 	checkVersion()
 	$.getJSON("https://cdn.jsdelivr.net/gh/dearvoodoo/dbd/version.json", function(dataVersion) {
 		localStorage.setItem("API-Version", dataVersion.api)
-	});
+    });
+    location.reload();
 }
 
 function getSurvivors() {
@@ -286,7 +300,7 @@ function Retry() {
 };
 
 function Reset() {
-    $('#survivor-list').html('<div class="col text-center"><button type="button" class="btn btn-themed btn-lg mr-1" onclick="ActiveAll()" id="select-all-btn">Tout Sélectionner</button><button type="button" class="btn btn-themed btn-lg ml-1" onclick="UnActiveAll()" id="unselect-all-btn" disabled>Tout Déselectionner</button></div><div class="row" id="place-for-survivor"></div>')
+    $('#survivor-list').html('<div class="col text-center"><button type="button" class="btn btn-themed btn-lg m-1" onclick="ActiveAll()" id="select-all-btn">Tout Sélectionner</button><button type="button" class="btn btn-themed btn-lg m-1" onclick="UnActiveAll()" id="unselect-all-btn" disabled>Tout Déselectionner</button><br><div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" id="PTBSwitch"><label class="custom-control-label" for="PTBSwitch">Contenu du PTB</label></div></div><div class="row d-inline-flex pt-3" id="place-for-survivor"></div>')
     getSurvivors();
     localStorage.removeItem('results');
     ActiveAll();
@@ -317,3 +331,34 @@ function checkVersion() {
 		$("#actual-api-version").attr("src", actualApiVersion);
 	});
 }
+
+// Check if PTB is active or not
+if (localStorage.hasOwnProperty('isPTB') === false) {
+    console.log("Creation de la data pour le PTB")
+    localStorage.setItem('isPTB', false)
+    $('#PTBSwitch').attr("checked", "");
+}
+
+checkPTB()
+function checkPTB() {
+    console.log("jecheck")
+    if (localStorage.getItem('isPTB') === "true") {
+        if ($('#PTBSwitch').prop("checked") === false) {
+            $('#PTBSwitch').attr("checked", "checked");
+        }
+    } else {
+        if ($('#PTBSwitch').prop("checked") === true) {
+            $('#PTBSwitch').attr("checked", "");
+        }
+    }
+}
+
+$('#PTBSwitch').change(function() {
+    if (localStorage.getItem("isPTB") === "true") {
+        localStorage.setItem('isPTB', false)
+        loadAPI()
+    } else {
+        localStorage.setItem('isPTB', true)
+        loadAPI()
+    }
+});
