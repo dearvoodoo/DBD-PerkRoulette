@@ -67,10 +67,10 @@
         data: "",
     },
     function printResult(data) {
-        perk_icon_1.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > th:nth-child(1) > div > div > a > img").attr("src"))
-        perk_icon_2.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > th:nth-child(1) > div > div > a > img").attr("src"))
-        perk_icon_3.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > th:nth-child(1) > div > div > a > img").attr("src"))
-        perk_icon_4.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > th:nth-child(1) > div > div > a > img").attr("src"))
+        perk_icon_1.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > th:nth-child(1) > div > div > a > img").attr("src").split('/revision')[0])
+        perk_icon_2.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > th:nth-child(1) > div > div > a > img").attr("src").split('/revision')[0])
+        perk_icon_3.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > th:nth-child(1) > div > div > a > img").attr("src").split('/revision')[0])
+        perk_icon_4.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > th:nth-child(1) > div > div > a > img").attr("src").split('/revision')[0])
 
         perk_name_1.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > td:nth-child(2) > a").text())
         perk_name_2.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > td:nth-child(2) > a").text())
@@ -87,10 +87,10 @@
         character_name_3.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > td:nth-child(4) > a").text())
         character_name_4.text($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > td:nth-child(4) > a").text())
 
-        character_face_1.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > th:nth-child(5) > div > div > a > img").attr("src"))
-        character_face_2.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > th:nth-child(5) > div > div > a > img").attr("src"))
-        character_face_3.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > th:nth-child(5) > div > div > a > img").attr("src"))
-        character_face_4.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > th:nth-child(5) > div > div > a > img").attr("src"))
+        character_face_1.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > th:nth-child(5) > div > div > a > img").attr("src").split('/revision')[0])
+        character_face_2.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > th:nth-child(5) > div > div > a > img").attr("src").split('/revision')[0])
+        character_face_3.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(4) > th:nth-child(5) > div > div > a > img").attr("src").split('/revision')[0])
+        character_face_4.attr('src', $(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(5) > th:nth-child(5) > div > div > a > img").attr("src").split('/revision')[0])
 
         $("#shrine-refresh").html($(data).find("#fpflexsection > div:nth-child(1) > center > table > tbody > tr:nth-child(6) > th > big").html())
     });

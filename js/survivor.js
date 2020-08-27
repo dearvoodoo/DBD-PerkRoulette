@@ -49,21 +49,21 @@ if (localStorage.hasOwnProperty('load_time') === false) {
 
 function loadAPI() {
     if (localStorage.getItem("isPTB") === "true") {
-        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/"+S_or_K, function(dataSurvivor) {
+        $.getJSON( "https://dbd-api.herokuapp.com/survivors", function(dataSurvivor) {
             localStorage.setItem( 'dataSurvivor', JSON.stringify(dataSurvivor) )
         });
     } else {
-        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/" + S_or_K + "?isptb=false", function(dataSurvivor) {
+        $.getJSON( "https://dbd-api.herokuapp.com/survivors?is_ptb=false", function(dataSurvivor) {
             localStorage.setItem( 'dataSurvivor', JSON.stringify(dataSurvivor) )
         });
     }
 
     if (localStorage.getItem("isPTB") === "true") {
-        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/perks" + lang + "&role=" + Perk_char, function(dataCharacters) {
+        $.getJSON( "https://dbd-api.herokuapp.com/perks?lang=" + lang + "&role=" + Perk_char, function(dataCharacters) {
             localStorage.setItem( 'dataCharacters', JSON.stringify(dataCharacters) )
         });
     } else {
-        $.getJSON( "https://bridge.buddyweb.fr/api/dbd/perks" + lang + "&role=" + Perk_char + "&isptb=false", function(dataCharacters) {
+        $.getJSON( "https://dbd-api.herokuapp.com/perks?lang=" + lang + "&role=" + Perk_char + "&is_ptb=false", function(dataCharacters) {
             localStorage.setItem( 'dataCharacters', JSON.stringify(dataCharacters) )
         });
     }
