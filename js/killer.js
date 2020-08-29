@@ -206,7 +206,7 @@ function UnActiveAll() {
 
 function GetPerks() {
     var SurvivorSelected = JSON.parse(localStorage.getItem('results'));
-	SurvivorSelected.sort( function() { return 0.5 - Math.random()});
+    SurvivorSelected.sort( function() { return 0.5 - Math.random()});
 
 	var Perk1 = SurvivorSelected[0];
 	var Perk2 = SurvivorSelected[1];
